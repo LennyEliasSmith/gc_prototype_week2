@@ -6,16 +6,19 @@ public class Pistol : MonoBehaviour
 {
     public float damage;
     public float range;
-    public float fireRate;
+    public float fireRate = 2;
+    public float nextTimeToFire = 0;
     public float maxAmmo;
     public float ammo;
     public float reloadTime = 2;
     public bool isReloading;
+    public bool isShooting;
 
     private Camera playerCam;
     private GameObject hitObject;
 
     AudioSource gunSound;
+    public Animator animator;
 
 
     // Start is called before the first frame update
@@ -26,15 +29,18 @@ public class Pistol : MonoBehaviour
         isReloading = false;
         maxAmmo = 15;
         ammo = maxAmmo;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ammo > 0 && !isReloading)
+
+        if(ammo > 0 && !isReloading && !isShooting)
         {
             if(Input.GetButtonDown("Fire1"))
             {
+  
                 Shoot();
 
             }
@@ -52,9 +58,13 @@ public class Pistol : MonoBehaviour
     void Shoot()
     {
 
+        isShooting = true;
+
         Debug.Log("PewPew");
 
         gunSound.Play();
+
+        animator.SetTrigger("Shoot");
 
         Vector3 tDirection = playerCam.transform.forward;
 
@@ -73,6 +83,10 @@ public class Pistol : MonoBehaviour
                 Destroy(hitObject);
             }
         }
+
+        isShooting = false;
+
+        animator.SetTrigger("Shoot");
     }
 
     IEnumerator Reload()

@@ -13,7 +13,7 @@ public class PlayerHUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GetComponentInParent<Pistol>();
     }
 
     // Update is called once per frame
