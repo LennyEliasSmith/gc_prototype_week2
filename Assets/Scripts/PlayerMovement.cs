@@ -49,12 +49,18 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            // controller.Move(moveVelocity * speed * Time.deltaTime);
+            Vector3 aerialMovementX = transform.right * x * aerialSpeedModifierX;
+            Vector3 aerialMovementZ = transform.forward * z * aerialSpeedModifierZ;
 
-            Vector3 aerialMovement = transform.right * x * aerialSpeedModifierX + transform.forward * z * aerialSpeedModifierZ;
-            if((moveVelocity + aerialMovement).magnitude < 2)
+            moveVelocity = moveVelocity * 0.99f;
+
+            if ((moveVelocity + aerialMovementX).magnitude < aerialSpeedMax)
             {
-                moveVelocity += aerialMovement;
+                moveVelocity += aerialMovementX;
+            }
+            if ((moveVelocity + aerialMovementZ).magnitude < aerialSpeedMax)
+            {
+                moveVelocity += aerialMovementZ;
             }
 
             controller.Move(moveVelocity * speed * Time.deltaTime);
