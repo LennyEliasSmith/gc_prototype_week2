@@ -15,11 +15,14 @@ public class Pistol : MonoBehaviour
     private Camera playerCam;
     private GameObject hitObject;
 
+    AudioSource gunSound;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerCam = GetComponent<Camera>();
+        gunSound = GetComponentInChildren<AudioSource>();
         isReloading = false;
         maxAmmo = 15;
         ammo = maxAmmo;
@@ -51,6 +54,8 @@ public class Pistol : MonoBehaviour
 
         Debug.Log("PewPew");
 
+        gunSound.Play();
+
         Vector3 tDirection = playerCam.transform.forward;
 
         ammo--;
@@ -75,11 +80,11 @@ public class Pistol : MonoBehaviour
 
         Debug.Log("Reloading...");
 
-        ammo = maxAmmo;
         isReloading = true;
 
         yield return new WaitForSeconds(reloadTime);
 
+        ammo = maxAmmo;
         Debug.Log("Finished reload");
         isReloading = false;
     }
