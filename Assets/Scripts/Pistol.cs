@@ -35,8 +35,6 @@ public class Pistol : MonoBehaviour
         gunShoot = sources[0].clip;
         gunReload = sources[1].clip;
 
-        fireRate = 1.5f;
-
         isReloading = false;
 
         ammo = maxAmmo;

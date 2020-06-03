@@ -746,15 +746,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fde271d42a4c1845822b616047f2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  range: 0
-  fireRate: 0
+  fireRate: 1.5
   nextTimeToFire: 0
-  maxAmmo: 0
+  maxAmmo: 15
   ammo: 0
-  reloadTime: 2
+  reloadTime: 1.5
   isReloading: 0
   isShooting: 0
+  gunAudio: {fileID: 0}
+  gunShoot: {fileID: 0}
+  gunReload: {fileID: 0}
   animator: {fileID: 1036453393}
 --- !u!1001 &1631661956
 PrefabInstance:
@@ -787,6 +788,16 @@ PrefabInstance:
         type: 3}
       propertyPath: animator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335536353067049355, guid: c2d0fc30819783e4fa6ec80a02c43d8d,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335536353067049355, guid: c2d0fc30819783e4fa6ec80a02c43d8d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7335536354622243301, guid: c2d0fc30819783e4fa6ec80a02c43d8d,
         type: 3}
