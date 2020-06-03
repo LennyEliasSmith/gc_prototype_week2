@@ -14,7 +14,9 @@ public class targetScript : MonoBehaviour
     public int range = 10;
 
     public bool isTargetActive = false;
-    public bool isTargetMoving = false;
+    public bool isTargetMovingHorizontal = false;
+    public bool isTargetMovingVertical = false;
+    public bool isTargetAttacking = false;
 
     
  
@@ -32,19 +34,14 @@ public class targetScript : MonoBehaviour
 
     void Update()
     {
-        if(isTargetActive == false) { 
+        //Boolean Functionality if statements
+        if(isTargetActive == false) {PlayerInDistanceOfTarget();}
 
-        PlayerInDistanceOfTarget();
-        
-            
+        if (isTargetMovingHorizontal && isTargetActive){TargetMovement();}
 
-        }
+        if(isTargetMovingVertical && isTargetActive){VerticalTargetMovement();}
 
-        if (isTargetMoving && isTargetActive)
-        {
-
-            TargetMovement();
-        }
+        if(isTargetActive && isTargetAttacking){TargetAttackPlayer();}
 
     }
 
@@ -76,16 +73,33 @@ public class targetScript : MonoBehaviour
 
     }
 
-    //Moves target between two points
+    //Target ping pongs on the x axis
     public void TargetMovement()
     {
-        if (isTargetActive)
-        {
+      
             Debug.Log("target Move");
 
             targetObj.position = new Vector3(Mathf.PingPong(Time.time * speed, distance ), transform.position.y, transform.position.z);
 
-        }
+    }
+
+    //Target Ping Pongs on the Y Axis
+    public void VerticalTargetMovement()
+    {
+
+       
+            Debug.Log("target vertical Move");
+
+            targetObj.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time * speed, distance), transform.position.z);
+
+
+    }
+
+    //Target Move Towards Player
+    public void TargetAttackPlayer()
+    {
+        Debug.Log("target Attack");
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
     }
 }

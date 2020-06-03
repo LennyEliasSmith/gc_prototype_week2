@@ -18,7 +18,7 @@ public class targetPlayerScript : MonoBehaviour
         float hrz = Input.GetAxis("Horizontal");
         float vrt = Input.GetAxis("Vertical");
 
-        Vector3 mvmnt = new Vector3(hrz * speed,0 , vrt * speed);
+        Vector3 mvmnt = new Vector3(hrz * speed, 0 , vrt * speed);
         rb.AddForce(mvmnt);
     }
 }
