@@ -2,51 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Pistol : MonoBehaviour
 {
-    public float damage;
-    public float range;
-    public float fireRate = 2;
-    public float nextTimeToFire = 0;
+
+    public float fireRate;
+    public float nextTimeToFire;
     public float maxAmmo;
     public float ammo;
-    public float reloadTime = 2;
+    public float reloadTime;
     public bool isReloading;
     public bool isShooting;
 
     private Camera playerCam;
     private GameObject hitObject;
 
-    AudioSource gunSound;
+    public AudioSource gunAudio;
+    public AudioClip gunShoot;
+    public AudioClip gunReload;
+
     public Animator animator;
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
         playerCam = GetComponent<Camera>();
-        gunSound = GetComponentInChildren<AudioSource>();
+
+        AudioSource[] sources = GetComponentsInChildren<AudioSource>();
+
+        gunAudio = sources[0];
+        gunShoot = sources[0].clip;
+        gunReload = sources[1].clip;
+
+        fireRate = 1.5f;
+
         isReloading = false;
-        maxAmmo = 15;
+
         ammo = maxAmmo;
 
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
 
-        if(ammo > 0 && !isReloading && !isShooting)
+        if (ammo > 0 && !isReloading && !isShooting && Time.time >= nextTimeToFire)
         {
-            if(Input.GetButtonDown("Fire1"))
+
+            if (Input.GetButtonDown("Fire1"))
             {
-  
+
+                nextTimeToFire = Time.time + 1f / fireRate;
+
                 Shoot();
 
             }
         }
 
-        if(Input.GetButtonDown("Reload") && !isReloading)
+        if (Input.GetButtonDown("Reload") && !isReloading && ammo != maxAmmo)
         {
 
             StartCoroutine(Reload());
@@ -62,13 +76,11 @@ public class Pistol : MonoBehaviour
 
         Debug.Log("PewPew");
 
-        gunSound.Play();
+        gunAudio.PlayOneShot(gunShoot);
 
         animator.SetTrigger("Shoot");
 
         Vector3 tDirection = playerCam.transform.forward;
-
-        ammo--;
 
         RaycastHit hit;
 
@@ -84,6 +96,8 @@ public class Pistol : MonoBehaviour
             }
         }
 
+        ammo--;
+
         isShooting = false;
 
         animator.SetTrigger("Shoot");
@@ -94,12 +108,16 @@ public class Pistol : MonoBehaviour
 
         Debug.Log("Reloading...");
 
+        gunAudio.PlayOneShot(gunReload);
+
         isReloading = true;
 
         yield return new WaitForSeconds(reloadTime);
 
         ammo = maxAmmo;
+
         Debug.Log("Finished reload");
+
         isReloading = false;
     }
 }
