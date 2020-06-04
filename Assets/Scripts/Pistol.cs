@@ -21,6 +21,8 @@ public class Pistol : MonoBehaviour
     public AudioClip gunShoot;
     public AudioClip gunReload;
 
+    public ParticleSystem muzzle;
+
     public Animator animator;
 
 
@@ -34,6 +36,8 @@ public class Pistol : MonoBehaviour
         gunAudio = sources[0];
         gunShoot = sources[0].clip;
         gunReload = sources[1].clip;
+
+        muzzle = GetComponentInChildren<ParticleSystem>();
 
         isReloading = false;
 
@@ -77,6 +81,8 @@ public class Pistol : MonoBehaviour
         gunAudio.PlayOneShot(gunShoot);
 
         animator.SetTrigger("Shoot");
+
+        muzzle.Play();
 
         Vector3 tDirection = playerCam.transform.forward;
 
