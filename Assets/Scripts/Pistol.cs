@@ -11,8 +11,11 @@ public class Pistol : MonoBehaviour
     public float maxAmmo;
     public float ammo;
     public float reloadTime;
-    public float killCount;
 
+    public float killCount;
+    public float shotsFired;
+    public float accuracy;
+    
     public bool isReloading;
     public bool isShooting;
 
@@ -71,6 +74,8 @@ public class Pistol : MonoBehaviour
 
         }
 
+
+
     }
 
     void Shoot()
@@ -81,13 +86,12 @@ public class Pistol : MonoBehaviour
         Debug.Log("PewPew");
 
         gunAudio.PlayOneShot(gunShoot);
-
         animator.SetTrigger("Shoot");
-
         muzzle.Play();
 
-        Vector3 tDirection = playerCam.transform.forward;
+        shotsFired++;
 
+        Vector3 tDirection = playerCam.transform.forward;
         RaycastHit hit;
 
         if (Physics.Raycast(playerCam.transform.position, tDirection, out hit))
@@ -109,6 +113,8 @@ public class Pistol : MonoBehaviour
         isShooting = false;
 
         animator.SetTrigger("Shoot");
+
+        accuracy = killCount / shotsFired;
     }
 
     IEnumerator Reload()
