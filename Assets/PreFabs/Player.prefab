@@ -786,6 +786,8 @@ MonoBehaviour:
   ammo: 10
   reloadTime: 2
   killCount: 0
+  shotsFired: 0
+  accuracy: 0
   isReloading: 0
   isShooting: 0
   gunAudio: {fileID: 0}
