@@ -7,7 +7,7 @@ public class targetScript : MonoBehaviour
 {
     public Transform targetObj;
     public Rigidbody2D targetRb;
-    private GameObject player;
+    public GameObject player;
 
     public float speed = 2f;
     public float distance = 2f;

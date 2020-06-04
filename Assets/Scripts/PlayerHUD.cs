@@ -7,6 +7,7 @@ public class PlayerHUD : MonoBehaviour
 {
 
     public Text ammoCount;
+    public Text killCount;
     public Pistol player;
     public string ammoString;
 
@@ -22,5 +23,7 @@ public class PlayerHUD : MonoBehaviour
         // ammoString = player.ammo.ToString() + " / " + player.maxAmmo.ToString();
         ammoCount.text = player.ammo.ToString() + " / " + player.maxAmmo.ToString();
         // ammoCount.text = ammoString;
+
+        killCount.text = player.killCount.ToString();
     }
 }

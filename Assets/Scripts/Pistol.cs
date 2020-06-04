@@ -11,6 +11,8 @@ public class Pistol : MonoBehaviour
     public float maxAmmo;
     public float ammo;
     public float reloadTime;
+    public float killCount;
+
     public bool isReloading;
     public bool isShooting;
 
@@ -96,7 +98,9 @@ public class Pistol : MonoBehaviour
 
             if (hitObject.CompareTag("Enemy"))
             {
-                Destroy(hitObject);
+                killCount++;
+                TargetDummy targetHP = hitObject.GetComponent<TargetDummy>();
+                targetHP.TakeDamage();
             }
         }
 
@@ -111,6 +115,8 @@ public class Pistol : MonoBehaviour
     {
 
         Debug.Log("Reloading...");
+
+        animator.SetTrigger("Reload");
 
         gunAudio.PlayOneShot(gunReload);
 
