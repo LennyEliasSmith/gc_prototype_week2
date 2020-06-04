@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: a44fe77f30ca4d945bc40e250638748e
+guid: 456cf40edaa646e48babbba0d1e40c8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2296980382732249720
-    second: Idle
+      213: -2023763865901600502
+    second: gun reload final_0
   - first:
-      213: -3867060213075241431
-    second: Shoot1
+      213: -6263883620720408753
+    second: gun reload final_1
   - first:
-      213: 7514890050773398104
-    second: Shoot2
+      213: 24353246737794782
+    second: gun reload final_2
   - first:
-      213: -7000274925113933392
-    second: Shoot3
+      213: -4953603929506583663
+    second: gun reload final_3
+  - first:
+      213: -6108295116763111766
+    second: gun reload final_4
+  - first:
+      213: 5150722687590416524
+    second: gun reload final_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,12 +129,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle
+      name: gun reload final_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 72
+        width: 144
         height: 72
       alignment: 8
       pivot: {x: 1, y: 0}
@@ -137,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8851437038c7f10e0800000000000000
-      internalID: -2296980382732249720
+      spriteID: a01f9af7c752ae3e0800000000000000
+      internalID: -2023763865901600502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shoot1
+      name: gun reload final_1
       rect:
         serializedVersion: 2
-        x: 72
+        x: 288
         y: 0
-        width: 72
+        width: 144
         height: 72
       alignment: 8
       pivot: {x: 1, y: 0}
@@ -158,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9269a9a8931755ac0800000000000000
-      internalID: -3867060213075241431
+      spriteID: f478290d8073219a0800000000000000
+      internalID: -6263883620720408753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shoot2
+      name: gun reload final_2
       rect:
         serializedVersion: 2
-        x: 144
+        x: 576
         y: 0
-        width: 72
+        width: 144
         height: 72
       alignment: 8
       pivot: {x: 1, y: 0}
@@ -179,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85237728fa04a4860800000000000000
-      internalID: 7514890050773398104
+      spriteID: ed60fec1625865000800000000000000
+      internalID: 24353246737794782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shoot3
+      name: gun reload final_3
       rect:
         serializedVersion: 2
-        x: 216
+        x: 864
         y: 0
-        width: 72
+        width: 144
         height: 72
       alignment: 8
       pivot: {x: 1, y: 0}
@@ -200,8 +206,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b1828e6b070ade90800000000000000
-      internalID: -7000274925113933392
+      spriteID: 19be7cfa873414bb0800000000000000
+      internalID: -4953603929506583663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun reload final_4
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 144
+        height: 72
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaed41654f9fa3ba0800000000000000
+      internalID: -6108295116763111766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun reload final_5
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 144
+        height: 72
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c804f52aefa0b7740800000000000000
+      internalID: 5150722687590416524
       vertices: []
       indices: 
       edges: []
@@ -209,7 +257,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: bbb4c0df50720284e8e6a32719aede57
+    spriteID: 5751bd6b6dd5a844589d88ddabff407f
     internalID: 0
     vertices: []
     indices: 
